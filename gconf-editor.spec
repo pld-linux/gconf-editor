@@ -1,34 +1,35 @@
-%define name gconf
-%define version editor
-%define release 1mdk
+Summary:	An editor for the GConf configuration system
+Summary(pl0:	Edytor do systemu konfiguracji GConf
+Name:		gconf-editor
+Version:	0.1
+Release:	2
+License:	GPL
+Group:		X11/Applications
+Source0:	ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	gtk+2-devel
+BuildRequires:	GConf2-devel
 
-Summary: An editor for the GConf configuration system
-Name: gconf-editor
-Version: 0.1
-Release: 1mdk
-Source0: ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
-License: GPL
-Group: Graphical desktop/gNOME
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
-BuildRequires: libgtk+2.0_0-devel
-BuildRequires: libGConf2-devel
+%define		_prefix		/usr/X11R6
 
 %description
-gconf-edit is an editor for the GConf configuration system
+gconf-edit is an editor for the GConf configuration system.
+
+%description -l pl
+gconf-edit to edytor do systemu konfiguracji GConf.
 
 %prep
 %setup -q
 
 %build
+%configure
 
-%configure2_5x
-
-%make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%makeinstall_std
+%makeinstall
 
 %find_lang %{name}
 
@@ -36,14 +37,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
-%defattr(-,root,root)
-%{_bindir}/*
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/*
 %{_datadir}/applications/*
 %{_datadir}/pixmaps/*
-
-%changelog
-* Tue Apr 30 2002 Frederic Crozat <fcrozat@mandrakesoft.com> 0.1-1mdk
-- Initial Mandrake package (GNOME 2)
-
-
-# end of file
