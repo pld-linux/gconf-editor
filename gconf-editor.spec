@@ -1,19 +1,18 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.7.91
+Version:	2.7.92
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	80c8b810cfc6d5459719c8911a48518b
-Patch0:		%{name}-locale-names.patch
-BuildRequires:	GConf2-devel >= 2.7.91
+# Source0-md5:	5b1ef137c01458aaf3910a537564e410
+BuildRequires:	GConf2-devel >= 2.7.92
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
-BuildRequires:	libgnomeui-devel >= 2.7.91
+BuildRequires:	libgnomeui-devel >= 2.7.92
 BuildRequires:	libtool
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
@@ -27,9 +26,6 @@ Edytor do systemu konfiguracji GConf.
 
 %prep
 %setup -q
-%patch0 -p1
-
-rm po/no.po
 
 %build
 gnome-doc-common
@@ -45,6 +41,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome
 
