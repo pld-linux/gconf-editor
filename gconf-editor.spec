@@ -2,15 +2,13 @@ Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
 Version:	0.3.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	GConf2-devel >= 1.2.1
-
-%define		_prefix		/usr/X11R6
 
 %description
 An editor for the GConf configuration system.
