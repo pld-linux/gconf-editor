@@ -15,6 +15,8 @@ BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libgnomeui-devel >= 2.8.0
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
+BuildRequires:	scrollkeeper
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
