@@ -5,8 +5,8 @@ diff -urN gconf-editor-2.6.1.orig/configure.in gconf-editor-2.6.1/configure.in
  
  AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
  
--ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_GB es et eu fa fi fr ga gl gu he hi hr hu id it ja kn ko li lt lv mk ml mn mr ms nl no pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi zh_CN zh_TW"
-+ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_GB es et eu fa fi fr ga gl gu he hi hr hu id it ja kn ko li lt lv mk ml mn mr ms nb nl pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi zh_CN zh_TW"
+-ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_GB es et eu fa fi fr ga gl gu he hi hr hu id it ja kn ko li lt lv mk ml mn mr ms ne nl no pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi zh_CN zh_TW"
++ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_GB es et eu fa fi fr ga gl gu he hi hr hu id it ja kn ko li lt lv mk ml mn mr ms nb ne nl pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi zh_CN zh_TW"
  
  GETTEXT_PACKAGE=gconf-editor
  AC_SUBST(GETTEXT_PACKAGE)
