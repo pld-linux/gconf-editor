@@ -1,19 +1,19 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.8.2
+Version:	2.9.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	193d5970b570366fd435b2b7ebdd8047
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	26527e129acde29aeb4397df8f168e71
 Patch0:		%{name}-desktop.patch
-BuildRequires:	GConf2-devel >= 2.8.1
+BuildRequires:	GConf2-devel >= 2.9.90
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.4.0
-BuildRequires:	gtk+2-devel >= 2:2.4.4
-BuildRequires:	libgnomeui-devel >= 2.8.0
+BuildRequires:	gtk+2-devel >= 2:2.6.2
+BuildRequires:	libgnomeui-devel >= 2.9.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	scrollkeeper
@@ -67,3 +67,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*
 %{_mandir}/man1/*
 %{_omf_dest_dir}/%{name}
+%{_iconsdir}/*/*/apps/*.png
