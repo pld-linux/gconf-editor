@@ -1,17 +1,18 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.4.0
-Release:	2
+Version:	2.6.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	7ebc352062fc8b6d3c09a69ad6e963a7
-BuildRequires:	automake
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	456d5dbddefffe7b49f18688aa9c1975
+Patch0:		%{name}-locale-names.patch
+BuildRequires:	GConf2-devel >= 2.5.90
 BuildRequires:	autoconf
-BuildRequires:	GConf2-devel >= 2.3.3
-BuildRequires:	gtk+2-devel >= 2.2.4
-BuildRequires:	xft-devel >= 2.0-6
+BuildRequires:	automake
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,13 +23,16 @@ Edytor do systemu konfiguracji GConf.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
-
 %{__make}
 
 %install
@@ -47,3 +51,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/*
 %{_pixmapsdir}/*
+%{_mandir}/man1/*
