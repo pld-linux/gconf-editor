@@ -2,7 +2,7 @@ Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
 Version:	0.5.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 # Source0-md5:	3a267c5724d086d7d5f47691980faff1
