@@ -9,8 +9,10 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.t
 # Source0-md5:	05b7c93774739fedb1ea21dc1419fcd7
 Patch0:		%{name}-locale-names.patch
 BuildRequires:	GConf2-devel >= 2.5.90
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2.3.5
-BuildRequires:	xft-devel >= 2.0-6
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,7 +28,10 @@ Edytor do systemu konfiguracji GConf.
 mv po/{no,nb}.po
 
 %build
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
