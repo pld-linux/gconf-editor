@@ -1,12 +1,12 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.7.4
+Version:	2.7.90
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	89d8fa3dd3059af26378b23f05d19fe3
+# Source0-md5:	ed5930948cb510542ae94c2fbcb1c3a7
 Patch0:		%{name}-locale-names.patch
 BuildRequires:	GConf2-devel >= 2.7.3.1
 BuildRequires:	autoconf
