@@ -2,7 +2,7 @@ Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
 Version:	2.10.0
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.10/%{name}-%{version}.tar.bz2
@@ -16,9 +16,10 @@ BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
-Requires(post):	GConf2
-Requires(post):	scrollkeeper
+Requires(post,preun):	GConf2
+Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,10 +55,14 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/bin/scrollkeeper-update
-%gconf_schema_install
+%gconf_schema_install gconf-editor.schemas
+%scrollkeeper_update_post
 
-%postun -p /usr/bin/scrollkeeper-update
+%preun
+%gconf_schema_uninstall gconf-editor.schemas
+
+%postun
+%scrollkeeper_update_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
