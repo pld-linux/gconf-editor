@@ -1,12 +1,12 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.10.0
-Release:	3
+Version:	2.11.92
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	651a18f7eb5af91761521aa4f04ccc07
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.11/%{name}-%{version}.tar.bz2
+# Source0-md5:	afbc07a3d861e1b43a5c2592419cc47d
 Patch0:		%{name}-desktop.patch
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf
@@ -68,9 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%{_sysconfdir}/gconf/schemas/*.schemas
 %{_desktopdir}/*
-%{_pixmapsdir}/*
+%{_iconsdir}/*/*/apps/*.png
 %{_mandir}/man1/*
 %{_omf_dest_dir}/%{name}
-%{_iconsdir}/*/*/apps/*.png
+%{_pixmapsdir}/*
+%{_sysconfdir}/gconf/schemas/gconf-editor.schemas
