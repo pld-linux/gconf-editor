@@ -1,19 +1,19 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.10.0
-Release:	3
-License:	GPL v2
+Version:	2.12.0
+Release:	1
+License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	651a18f7eb5af91761521aa4f04ccc07
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	ec8b0d4ee2a460ed31f69e4825fb4e17
 Patch0:		%{name}-desktop.patch
-BuildRequires:	GConf2-devel >= 2.10.0
+BuildRequires:	GConf2-devel >= 2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.4.0
-BuildRequires:	gtk+2-devel >= 2:2.6.4
-BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	gtk+2-devel >= 2:2.8.3
+BuildRequires:	libgnomeui-devel >= 2.12.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -68,9 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%{_sysconfdir}/gconf/schemas/*.schemas
 %{_desktopdir}/*
-%{_pixmapsdir}/*
+%{_iconsdir}/*/*/apps/*.png
 %{_mandir}/man1/*
 %{_omf_dest_dir}/%{name}
-%{_iconsdir}/*/*/apps/*.png
+%{_pixmapsdir}/*
+%{_sysconfdir}/gconf/schemas/gconf-editor.schemas
