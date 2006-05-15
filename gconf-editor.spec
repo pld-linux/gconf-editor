@@ -1,19 +1,19 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.12.0
+Version:	2.14.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	ec8b0d4ee2a460ed31f69e4825fb4e17
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	eb8b979464f6e383e5a27b57ee4e8382
 Patch0:		%{name}-desktop.patch
-BuildRequires:	GConf2-devel >= 2.12.0
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	gtk+2-devel >= 2:2.8.3
-BuildRequires:	libgnomeui-devel >= 2.12.0
+BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -33,7 +33,8 @@ Edytor do systemu konfiguracji GConf.
 %patch0 -p1
 
 %build
-gnome-doc-common
+%{__intltoolize}
+%{__gnome_doc_common}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
