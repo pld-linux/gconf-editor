@@ -1,11 +1,11 @@
-diff -urN gconf-editor-2.8.1.orig/data/gconf-editor.desktop.in.in gconf-editor-2.8.1/data/gconf-editor.desktop.in.in
---- gconf-editor-2.8.1.orig/data/gconf-editor.desktop.in.in	2004-10-01 15:02:24.712546672 +0200
-+++ gconf-editor-2.8.1/data/gconf-editor.desktop.in.in	2004-10-01 15:02:42.229883632 +0200
+diff -aurN gconf-editor-2.13.90.orig/data/gconf-editor.desktop.in.in gconf-editor-2.13.90/data/gconf-editor.desktop.in.in
+--- gconf-editor-2.13.90.orig/data/gconf-editor.desktop.in.in	2006-01-30 07:04:19.000000000 +0100
++++ gconf-editor-2.13.90/data/gconf-editor.desktop.in.in	2006-01-30 17:27:46.260754000 +0100
 @@ -7,7 +7,7 @@
  Type=Application
  Icon=gconf-editor.png
  StartupNotify=true
--Categories=GNOME;Application;System;
+-Categories=GNOME;GTK;Application;System;
 +Categories=GTK;GNOME;System;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=gconf-editor
