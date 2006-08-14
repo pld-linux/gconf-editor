@@ -1,18 +1,18 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.15.91
+Version:	2.15.92
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	5b46ca0f177428b6c84c53cebd81831e
+# Source0-md5:	748b4cf2e68c260e62b8cd1a0d9dff6a
 Patch0:		%{name}-desktop.patch
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-doc-utils >= 0.7.1
+BuildRequires:	gnome-doc-utils >= 0.7.2
 BuildRequires:	gtk+2-devel >= 2:2.10.1
 BuildRequires:	libgnomeui-devel >= 2.15.91
 BuildRequires:	libtool
@@ -42,7 +42,8 @@ Edytor do systemu konfiguracji GConf.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--disable-scrollkeeper
 %{__make}
 
 %install
@@ -59,6 +60,7 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ug
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%scrollkeeper_update_post
 %gconf_schema_install gconf-editor.schemas
 %update_icon_cache hicolor
 
@@ -66,6 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_uninstall gconf-editor.schemas
 
 %postun
+%scrollkeeper_update_postun
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
@@ -76,4 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/*/*.png
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
+%dir %{_omf_dest_dir}/%{name}
+%{_omf_dest_dir}/%{name}/*-C.omf
 %{_sysconfdir}/gconf/schemas/gconf-editor.schemas
