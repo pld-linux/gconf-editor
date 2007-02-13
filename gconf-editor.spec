@@ -1,5 +1,5 @@
 Summary:	An editor for the GConf configuration system
-Summary(pl.UTF-8):   Edytor do systemu konfiguracji GConf
+Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
 Version:	2.16.0
 Release:	1
