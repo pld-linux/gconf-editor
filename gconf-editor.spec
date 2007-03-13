@@ -1,28 +1,27 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.16.0
+Version:	2.18.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	e52b3177ef6ebd1fcf2c84acbe90a663
-Patch0:		%{name}-desktop.patch
-BuildRequires:	GConf2-devel >= 2.14.0
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	cbaefa1ff8a548a3d381c67aed426fb7
+BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-doc-utils >= 0.7.2
-BuildRequires:	gtk+2-devel >= 2:2.10.1
-BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	gnome-doc-utils >= 0.10.1
+BuildRequires:	gtk+2-devel >= 2:2.10.10
+BuildRequires:	libgnomeui-devel >= 2.18.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-Requires(post,preun):	GConf2 >= 2.14.0
-Requires(post,postun):	gtk+2 >= 2:2.10.1
-Requires:	libgnomeui >= 2.14.0
-Requires:	hicolor-icon-theme
+Requires(post,postun):	gtk+2
+Requires(post,postun):	hicolor-icon-theme
+Requires(post,preun):	GConf2
+Requires:	libgnomeui >= 2.18.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,7 +32,6 @@ Edytor do systemu konfiguracji GConf.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -78,5 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
 %dir %{_omf_dest_dir}/%{name}
-%{_omf_dest_dir}/%{name}/*-C.omf
+%{_omf_dest_dir}/gconf-editor/gconf-editor-C.omf
+%lang(fr) %{_omf_dest_dir}/gconf-editor/gconf-editor-fr.omf
+%lang(it) %{_omf_dest_dir}/gconf-editor/gconf-editor-it.omf
+%lang(sv) %{_omf_dest_dir}/gconf-editor/gconf-editor-sv.omf
 %{_sysconfdir}/gconf/schemas/gconf-editor.schemas
