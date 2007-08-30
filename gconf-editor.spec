@@ -1,16 +1,16 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.18.0
+Version:	2.18.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gconf-editor/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	cbaefa1ff8a548a3d381c67aed426fb7
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	e40f51b3cb2809b882c29d45b71657bd
 BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-common >= 2.18.0
 BuildRequires:	gnome-doc-utils >= 0.10.1
 BuildRequires:	gtk+2-devel >= 2:2.10.10
 BuildRequires:	libgnomeui-devel >= 2.18.0
@@ -34,6 +34,7 @@ Edytor do systemu konfiguracji GConf.
 %setup -q
 
 %build
+mkdir m4
 %{__intltoolize}
 %{__gnome_doc_common}
 %{__libtoolize}
@@ -77,7 +78,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*
 %dir %{_omf_dest_dir}/%{name}
 %{_omf_dest_dir}/gconf-editor/gconf-editor-C.omf
+%lang(de) %{_omf_dest_dir}/gconf-editor/gconf-editor-de.omf
+%lang(es) %{_omf_dest_dir}/gconf-editor/gconf-editor-es.omf
 %lang(fr) %{_omf_dest_dir}/gconf-editor/gconf-editor-fr.omf
 %lang(it) %{_omf_dest_dir}/gconf-editor/gconf-editor-it.omf
+%lang(oc) %{_omf_dest_dir}/gconf-editor/gconf-editor-oc.omf
 %lang(sv) %{_omf_dest_dir}/gconf-editor/gconf-editor-sv.omf
+%lang(uk) %{_omf_dest_dir}/gconf-editor/gconf-editor-uk.omf
 %{_sysconfdir}/gconf/schemas/gconf-editor.schemas
