@@ -21,7 +21,7 @@ BuildRequires:	scrollkeeper
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.20.0
+Requires:	libgnomeui >= 2.19.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
