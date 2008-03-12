@@ -1,27 +1,32 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.20.0
-Release:	2
+Version:	2.22.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	b686677878b5754ffa8d0a2cc1129988
-BuildRequires:	GConf2-devel >= 2.18.0.1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	7ca99aec214dd855b5de7dacc8937055
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-doc-utils >= 0.10.1
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	libgnomeui-devel >= 2.19.1
+BuildRequires:	gnome-doc-utils >= 0.12.0
+BuildRequires:	gtk+2-devel >= 2:2.12.8
+BuildRequires:	intltool >= 0.36.2
+BuildRequires:	libgnomeui-devel >= 2.22.01
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
+BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
+Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.19.1
+Requires:	libgnomeui >= 2.22.01
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,13 +40,16 @@ Edytor do systemu konfiguracji GConf.
 %prep
 %setup -q
 
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv po/sr@{Latn,latin}.po
+
 %build
-mkdir m4
 %{__intltoolize}
 %{__gnome_doc_common}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--disable-scrollkeeper
@@ -53,9 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
-%find_lang %{name} --with-gnome
+%find_lang %{name} --with-gnome --with-omf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -75,18 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/*
-%{_desktopdir}/*.desktop
+%attr(755,root,root) %{_bindir}/gconf-editor
+%{_desktopdir}/gconf-editor.desktop
 %{_iconsdir}/hicolor/*/*/*.png
-%{_mandir}/man1/*
-%{_pixmapsdir}/*
-%dir %{_omf_dest_dir}/%{name}
-%{_omf_dest_dir}/gconf-editor/gconf-editor-C.omf
-%lang(de) %{_omf_dest_dir}/gconf-editor/gconf-editor-de.omf
-%lang(es) %{_omf_dest_dir}/gconf-editor/gconf-editor-es.omf
-%lang(fr) %{_omf_dest_dir}/gconf-editor/gconf-editor-fr.omf
-%lang(it) %{_omf_dest_dir}/gconf-editor/gconf-editor-it.omf
-%lang(oc) %{_omf_dest_dir}/gconf-editor/gconf-editor-oc.omf
-%lang(sv) %{_omf_dest_dir}/gconf-editor/gconf-editor-sv.omf
-%lang(uk) %{_omf_dest_dir}/gconf-editor/gconf-editor-uk.omf
+%{_mandir}/man1/gconf-editor.1*
+%{_pixmapsdir}/gconf-editor
 %{_sysconfdir}/gconf/schemas/gconf-editor.schemas
