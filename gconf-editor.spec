@@ -1,12 +1,12 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.22.0
+Version:	2.23.91
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	7ca99aec214dd855b5de7dacc8937055
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.23/%{name}-%{version}.tar.bz2
+# Source0-md5:	61e4e284c8f73d24858195800a6c61fe
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -39,9 +39,6 @@ Edytor do systemu konfiguracji GConf.
 
 %prep
 %setup -q
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 
 %build
 %{__intltoolize}
@@ -84,6 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gconf-editor
 %{_desktopdir}/gconf-editor.desktop
 %{_iconsdir}/hicolor/*/*/*.png
+%dir %{_datadir}/gconf-editor
+%{_datadir}/gconf-editor/icons
 %{_mandir}/man1/gconf-editor.1*
-%{_pixmapsdir}/gconf-editor
 %{_sysconfdir}/gconf/schemas/gconf-editor.schemas
