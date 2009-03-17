@@ -1,21 +1,22 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.24.1
+Version:	2.26.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	2fe93cb2ac8ea0d34860cc6d059076d8
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.26/%{name}-%{version}.tar.bz2
+# Source0-md5:	2dc76415b22d805cfacfcd5fb98f185c
 BuildRequires:	GConf2-devel >= 2.24.0
+BuildRequires:	PolicyKit-devel >= 0.7
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
@@ -25,7 +26,6 @@ Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.24.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
