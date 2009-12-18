@@ -1,14 +1,13 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.26.0
+Version:	2.28.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.26/%{name}-%{version}.tar.bz2
-# Source0-md5:	2dc76415b22d805cfacfcd5fb98f185c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.28/%{name}-%{version}.tar.bz2
+# Source0-md5:	f3f19df4ce47ca27bf69d355f24ac5ba
 BuildRequires:	GConf2-devel >= 2.24.0
-BuildRequires:	PolicyKit-devel >= 0.7
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.74
@@ -18,9 +17,7 @@ BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libselinux-devel
 BuildRequires:	libtool
-BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
