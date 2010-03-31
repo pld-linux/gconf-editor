@@ -1,12 +1,12 @@
 Summary:	An editor for the GConf configuration system
 Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
-Version:	2.28.0
+Version:	2.30.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	f3f19df4ce47ca27bf69d355f24ac5ba
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/2.30/%{name}-%{version}.tar.bz2
+# Source0-md5:	2a941e3c64843be69190f38891470580
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
+BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
@@ -38,6 +39,9 @@ Edytor do systemu konfiguracji GConf.
 
 %prep
 %setup -q
+
+sed -i -e 's/^en@shaw//' po/LINGUAS
+rm -f po/en@shaw.po
 
 %build
 %{__intltoolize}
