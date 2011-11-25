@@ -6,7 +6,7 @@ Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/3.0/%{name}-%{version}.tar.xz
-# Source0-md5:	535eb5986d83c17a91891da26f6b78f3
+# Source0-md5:	107b8fa250da4ae2de197a1381a099f5
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
