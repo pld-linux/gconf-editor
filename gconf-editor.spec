@@ -2,7 +2,7 @@ Summary:	An editor for the GConf configuration system
 Summary(pl.UTF-8):	Edytor do systemu konfiguracji GConf
 Name:		gconf-editor
 Version:	3.0.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gconf-editor/3.0/%{name}-%{version}.tar.xz
